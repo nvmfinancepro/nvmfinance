@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – NVM Finance</title>
+  <meta name="description" content="Prenez rendez-vous avec NVM Finance pour un premier échange gratuit de 15 à 30 minutes sur le pilotage de votre activité financière." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── CONTACT LAYOUT ── */
+    .contact-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 52px 20px 64px;
+    }
+
+    .contact-wrap h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 7vw, 40px);
+      font-weight: 600;
+      font-style: italic;
+      line-height: 1.15;
+      letter-spacing: -0.4px;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+
+    .contact-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    /* ── RDV CTA BLOCK ── */
+    .rdv-block {
+      background: var(--green-ultra);
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .rdv-block p {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .rdv-note { font-size: 12px; color: #b0b0ae; margin-top: 10px; }
+
+    /* ── DIVIDER TEXT ── */
+    .divider-text {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 32px 0;
+      color: var(--gray);
+      font-size: 13px;
+    }
+    .divider-text::before,
+    .divider-text::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-border);
+    }
+
+    /* ── FORM ── */
+    .contact-form { display: flex; flex-direction: column; gap: 18px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .form-group label span { color: var(--green); margin-left: 2px; }
+
+    .form-group input,
+    .form-group textarea {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(45,106,79,0.1);
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    .form-submit { margin-top: 4px; }
+    .form-submit .btn-primary { max-width: 100%; width: 100%; font-size: 15px; padding: 14px 24px; }
+
+    /* ── SUCCESS MESSAGE ── */
+    .form-success {
+      display: none;
+      background: var(--green-ultra);
+      border: 1px solid var(--green-pale);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+    .form-success.show { display: block; }
+    .form-success p {
+      font-size: 15px;
+      color: var(--green);
+      font-weight: 400;
+    }
+
+    /* ── CONTACT INFO BLOCK ── */
+    .contact-info {
+      background: var(--gray-light);
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      margin-top: 36px;
+    }
+
+    .contact-info h3 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+
+    .contact-info-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .contact-info-row:last-child { border-bottom: none; }
+
+    .ci-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .ci-label {
+      font-size: 12px;
+      color: var(--gray);
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .ci-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .ci-value a { text-decoration: none; color: var(--text); }
+    .ci-value a:hover { color: var(--green); }
+
+    @media (min-width: 768px) {
+      .contact-wrap { padding: 72px 48px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="logo-wrap" href="index.html">
+    <img src="assets/logo.png" alt="NVM Finance" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="https://meet.brevo.com/nathan-van-meer-1" class="btn-nav">Prendre RDV</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://meet.brevo.com/nathan-van-meer-1" class="btn-nav">Prendre RDV →</a>
+</div>
+
+<!-- ── CONTENT ── -->
+<div class="contact-wrap">
+  <span class="section-label reveal">Nous contacter</span>
+  <h1 class="reveal">Parlons de votre activité</h1>
+  <p class="contact-sub reveal">
+    Premier échange de 15 / 30 minutes, sans engagement, pour comprendre votre situation et vous montrer ce qu'un tableau de bord personnalisé apporterait concrètement à votre entreprise.
+  </p>
+
+  <!-- RDV BLOCK -->
+  <div class="rdv-block reveal">
+    <span class="section-label" style="margin-bottom: 8px;">Option la plus rapide</span>
+    <h2 class="section-title" style="margin-bottom: 10px;">Réservez un créneau en ligne</h2>
+    <p>Choisissez directement le créneau qui vous convient — vous recevrez une confirmation instantanée par e-mail.</p>
+    <a href="https://meet.brevo.com/nathan-van-meer-1" class="btn-primary" style="max-width: 100%; width: 100%;">
+      Prendre RDV gratuitement →
+    </a>
+    <p class="rdv-note">Sans engagement · 15 à 30 min · Visio ou téléphone</p>
+  </div>
+
+  <div class="divider-text">ou envoyez un message</div>
+
+  <!-- FORM -->
+  <form class="contact-form reveal" id="contactForm" novalidate>
+    <div class="form-group">
+      <label for="name">Nom <span>*</span></label>
+      <input type="text" id="name" name="name" placeholder="Votre nom" required />
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail <span>*</span></label>
+      <input type="email" id="email" name="email" placeholder="votre@email.fr" required />
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Décrivez brièvement votre situation ou votre question…"></textarea>
+    </div>
+    <div class="form-submit">
+      <button type="submit" class="btn-primary">Envoyer le message →</button>
+    </div>
+  </form>
+
+  <div class="form-success" id="formSuccess">
+    <p>✨ Merci pour votre message — nous vous répondrons dans les 24h.</p>
+  </div>
+
+  <!-- CONTACT INFO -->
+  <div class="contact-info reveal">
+    <h3>Coordonnées directes</h3>
+    <div class="contact-info-row">
+      <div class="ci-icon">✉️</div>
+      <div>
+        <span class="ci-label">E-mail</span>
+        <span class="ci-value"><a href="mailto:nathan@nvm-finance.fr">nathan@nvm-finance.fr</a></span>
+      </div>
+    </div>
+    <div class="contact-info-row">
+      <div class="ci-icon">📞</div>
+      <div>
+        <span class="ci-label">Téléphone</span>
+        <span class="ci-value"><a href="tel:0783657639">07 83 65 76 39</a></span>
+      </div>
+    </div>
+    <div class="contact-info-row">
+      <div class="ci-icon">⏱</div>
+      <div>
+        <span class="ci-label">Délai de réponse</span>
+        <span class="ci-value">Sous 24h en jours ouvrés</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">
+    <img src="assets/logo.png" alt="NVM Finance" />
+  </div>
+  <p class="footer-tagline">Analyse financière • Suivi de performance • Pilotage d'activité</p>
+  <div class="footer-contact">
+    <a href="mailto:nathan@nvm-finance.fr">nathan@nvm-finance.fr</a>
+    &nbsp;–&nbsp;
+    <a href="tel:0783657639">07 83 65 76 39</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  // Simple form handler (frontend only — pour vraie soumission, brancher un service comme Formspree)
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    if (!name || !email) {
+      alert('Merci de renseigner votre nom et votre e-mail.');
+      return;
+    }
+    this.style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  });
+</script>
+</body>
+</html>

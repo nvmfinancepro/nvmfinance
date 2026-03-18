@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NVM Finance – Pilotez votre entreprise avec des indicateurs financiers clairs et stratégiques</title>
+  <meta name="description" content="NVM Finance accompagne les dirigeants de TPE et PME dans le pilotage de leur activité financière grâce à un tableau de bord personnalisé, mis à jour chaque mois." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── PAGE WRAPPER ── */
+    .page-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 52px 20px 0;
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--green-pale);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 7vw, 44px);
+      font-weight: 600;
+      font-style: italic;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: var(--black);
+      margin-bottom: 18px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 28px;
+    }
+    .hero-cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .hero-note {
+      font-size: 12px;
+      color: #b0b0ae;
+      margin-bottom: 40px;
+    }
+
+    /* ── DASHBOARD SECTION ── */
+    .dashboard-section {
+      background: var(--gray-light);
+      border-top: 1px solid var(--gray-border);
+      border-bottom: 1px solid var(--gray-border);
+      padding: 48px 20px;
+    }
+    .dashboard-section .inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .dash-img-wrap {
+      margin-top: 24px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--gray-border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      background: var(--white);
+    }
+    .dash-img-wrap img { width: 100%; }
+    .dash-caption {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+    .dash-dot {
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.25; }
+    }
+
+    /* ── BENEFITS SECTION ── */
+    .benefits-section {
+      padding: 52px 20px;
+    }
+    .benefits-section .inner { max-width: 680px; margin: 0 auto; }
+
+    .benefits-list {
+      list-style: none;
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 24px;
+    }
+    .benefit-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--gray-border);
+      background: var(--white);
+      transition: background 0.15s;
+    }
+    .benefit-row:last-child { border-bottom: none; }
+    .benefit-row:hover { background: var(--green-ultra); }
+    .benefit-check {
+      color: var(--green);
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+    .benefit-text {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    /* ── TRUST PROOF ── */
+    .proof-section {
+      background: var(--green-ultra);
+      border-top: 1px solid var(--gray-border);
+      border-bottom: 1px solid var(--gray-border);
+      padding: 52px 20px;
+    }
+    .proof-section .inner { max-width: 680px; margin: 0 auto; }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .proof-card {
+      background: var(--white);
+      border: 1px solid var(--gray-border);
+      border-radius: 12px;
+      padding: 22px 20px;
+    }
+    .proof-stars {
+      color: #e8a000;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .proof-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 16px;
+      color: var(--black);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .proof-author { display: flex; align-items: center; gap: 10px; }
+    .proof-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 600;
+      flex-shrink: 0;
+    }
+    .proof-name { display: block; font-size: 13px; font-weight: 500; color: var(--black); }
+    .proof-role { font-size: 12px; color: var(--gray); }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .final-cta p {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .final-cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .final-note { font-size: 12px; color: #b0b0ae; }
+
+    @media (min-width: 640px) {
+      .hero-cta-wrap { flex-direction: row; justify-content: center; }
+      .btn-primary { width: auto; }
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+      .final-cta-wrap { flex-direction: row; justify-content: center; }
+    }
+    @media (min-width: 768px) {
+      .hero { padding: 72px 48px 0; }
+      .dashboard-section, .benefits-section, .proof-section { padding: 64px 48px; }
+      .final-cta { padding: 72px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="logo-wrap" href="index.html">
+    <img src="assets/logo.png" alt="NVM Finance" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Accueil</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://meet.brevo.com/nathan-van-meer-1" class="btn-nav">Prendre RDV</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Accueil</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="https://meet.brevo.com/nathan-van-meer-1" class="btn-nav">Prendre RDV →</a>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <span class="hero-eyebrow">Pilotage financier · TPE & PME</span>
+  <h1>Pilotez votre entreprise avec des chiffres clairs</h1>
+  <p class="hero-sub">
+    NVM Finance accompagne les dirigeants de TPE et PME dans le pilotage de leur activité financière.
+    Grâce à un tableau de bord personnalisé, mis à jour chaque mois.
+  </p>
+  <div class="hero-cta-wrap">
+    <a href="https://meet.brevo.com/nathan-van-meer-1" class="btn-primary">Prendre RDV →</a>
+  </div>
+  <p class="hero-note">Sans engagement · 15 à 30 minutes · Gratuit</p>
+</div>
+
+<!-- ── TRUST STRIP ── -->
+<div class="trust-strip reveal">
+  <div class="trust-item">
+    <span class="trust-num">+35</span>
+    <span class="trust-label">dirigeants accompagnés</span>
+  </div>
+  <div class="trust-item">
+    <span class="trust-num">3 j</span>
+    <span class="trust-label">pour livrer votre dashboard</span>
+  </div>
+  <div class="trust-item">
+    <span class="trust-num">100%</span>
+    <span class="trust-label">personnalisé à votre activité</span>
+  </div>
+</div>
+
+<!-- ── DASHBOARD ── -->
+<div class="dashboard-section">
+  <div class="inner">
+    <span class="section-label reveal">Aperçu de votre tableau de bord</span>
+    <h2 class="section-title reveal">Votre activité financière en un coup d'œil</h2>
+    <div class="dash-img-wrap reveal">
+      <img
+        src="assets/dashboard.png"
+        alt="Tableau de bord NVM Finance — exemple de pilotage financier"
+        loading="lazy"
+      />
+    </div>
+    <p class="dash-caption reveal">
+      <span class="dash-dot"></span>
+      Exemple réel de tableau de bord — mis à jour chaque mois
+    </p>
+  </div>
+</div>
+
+<!-- ── BENEFITS ── -->
+<div class="benefits-section">
+  <div class="inner">
+    <h2 class="section-title reveal">Ce que vous obtenez grâce à notre accompagnement</h2>
+    <ul class="benefits-list reveal">
+      <li class="benefit-row">
+        <span class="benefit-check">✔</span>
+        <span class="benefit-text">Vous connaissez votre rentabilité réelle chaque mois</span>
+      </li>
+      <li class="benefit-row">
+        <span class="benefit-check">✔</span>
+        <span class="benefit-text">Vous anticipez vos tensions de trésorerie</span>
+      </li>
+      <li class="benefit-row">
+        <span class="benefit-check">✔</span>
+        <span class="benefit-text">Vous identifiez vos produits les plus rentables</span>
+      </li>
+      <li class="benefit-row">
+        <span class="benefit-check">✔</span>
+        <span class="benefit-text">Vous prenez des décisions basées sur des chiffres, pas sur l'instinct</span>
+      </li>
+      <li class="benefit-row">
+        <span class="benefit-check">✔</span>
+        <span class="benefit-text">Vous gagnez en sérénité et en clarté</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── SOCIAL PROOF ── -->
+<div class="proof-section">
+  <div class="inner">
+    <span class="section-label reveal">Ils nous font confiance</span>
+    <h2 class="section-title reveal">Ce que disent nos clients</h2>
+    <div class="proof-grid">
+      <div class="proof-card reveal">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-quote">« En 3 mois, j'ai enfin compris où partait ma marge. On a identifié 2 postes de coûts inutiles que je n'avais jamais vus. »</p>
+        <div class="proof-author">
+          <div class="proof-avatar">ML</div>
+          <div>
+            <span class="proof-name">Marie L.</span>
+            <span class="proof-role">Gérante, agence de communication</span>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card reveal reveal-d1">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-quote">« Je prenais des décisions à l'aveugle. Maintenant j'ai un tableau de bord que je consulte chaque semaine. Ça change tout. »</p>
+        <div class="proof-author">
+          <div class="proof-avatar">TM</div>
+          <div>
+            <span class="proof-name">Thomas M.</span>
+            <span class="proof-role">Fondateur, startup B2B</span>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card reveal reveal-d2">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-quote">« Opérationnel en moins d'une semaine. Nathan est réactif, pédagogue, et les indicateurs collent parfaitement à mon secteur. »</p>
+        <div class="proof-author">
+          <div class="proof-avatar">SC</div>
+          <div>
+            <span class="proof-name">Sophie C.</span>
+            <span class="proof-role">Directrice, cabinet RH</span>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card reveal reveal-d3">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-quote">« On a réorienté notre offre grâce aux données. Nos marges ont progressé de 6 points en 4 mois. »</p>
+        <div class="proof-author">
+          <div class="proof-avatar">JB</div>
+          <div>
+            <span class="proof-name">Julien B.</span>
+            <span class="proof-role">Co-fondateur, e-commerce</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FINAL CTA ── -->
+<div class="final-cta reveal">
+  <h2 class="section-title">Vous voulez savoir où en est réellement votre entreprise ?</h2>
+  <p>Échangeons 15 / 30 minutes — sans engagement.</p>
+  <div class="final-cta-wrap">
+    <a href="https://meet.brevo.com/nathan-van-meer-1" class="btn-primary">Prendre RDV →</a>
+  </div>
+  <p class="final-note" style="margin-top:10px;">Gratuit · Sans engagement · Réponse sous 24h</p>
+</div>
+
+<hr />
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">
+    <img src="assets/logo.png" alt="NVM Finance" />
+  </div>
+  <p class="footer-tagline">Analyse financière • Suivi de performance • Pilotage d'activité</p>
+  <div class="footer-contact">
+    <a href="mailto:nathan@nvm-finance.fr">nathan@nvm-finance.fr</a>
+    &nbsp;–&nbsp;
+    <a href="tel:0783657639">07 83 65 76 39</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
